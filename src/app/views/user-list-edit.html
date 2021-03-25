@@ -1,0 +1,71 @@
+<!-- <div class="col-md-10" *ngIf="identity && identity.role == 'ROLE_ADMIN'"> -->
+<!-- <h1>{{titulo}}</h1> -->
+
+
+<!-- <form #formUser="ngForm" (ngSubmit)="onSubmit()"> -->
+<!-- <p>
+            <label>Numero</label>
+            <input type="text" #number="ngModel" name="number" [(ngModel)]="song.number" class="form-control"
+                required />
+            <span *ngIf="!number.valid && number.touched">
+                EL numero es obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Titulo</label>
+            <input type="text" #name="ngModel" name="name" [(ngModel)]="song.name" class="form-control" required />
+            <span *ngIf="!name.valid && name.touched">
+                EL titulo es obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Duracion</label>
+            <input #duration="ngModel" name="duration" [(ngModel)]="song.duration" class="form-control" required />
+            <span *ngIf="!duration.valid && duration.touched">
+                La duracion es obligatoria
+            </span>
+        </p> -->
+<!-- *ngIf="is_edit" -->
+<div>
+
+    <h1>Actualizar Rol</h1>
+</div>
+<form #formUser="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label>Nombre</label>
+        <input type="text" #name="ngModel" name="name" [(ngModel)]="user.name" class="form-control" required />
+        <span *ngIf="!name.valid && name.touched"> El nombre es obligatorio </span>
+    </p>
+    <p>
+        <label>Apellido</label>
+        <input type="text" #surname="ngModel" name="surname" [(ngModel)]="user.surname" class="form-control" required />
+        <span *ngIf="!name.valid && name.touched">
+            El apellido es obligatorio
+        </span>
+    </p>
+    <p>
+        <label>Correo Electronico</label>
+        <input type="text" #email="ngModel" name="email" [(ngModel)]="user.email" class="form-control" required />
+        <span *ngIf="!email.valid && email.touched"> El email es obligatorio </span>
+    </p>
+    <p>
+        <label>Rol</label>
+        <input type="text" #role="ngModel" name="role" [(ngModel)]="user.role" class="form-control" required />
+        <span *ngIf="!role.valid && role.touched"> El email es obligatorio </span>
+    </p>
+    <div class="image_for_edit container" *ngIf="user.image && user.image != 'null'">
+        <img src="{{url + '/get-image-user/' + user.image}}" style="width: 180px" />
+    </div>
+
+    <p>
+        <label>Sube tu foto:</label>
+        <br />
+        <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+    </p>
+    <button class="btn btn-success" [disabled]="!formUser.form.valid">
+        Actualizar Usuario
+    </button>
+</form>
+
+
+<!-- <h1>goaso</h1> -->

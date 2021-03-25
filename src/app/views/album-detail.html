@@ -1,0 +1,92 @@
+<div class="album-box" *ngIf="album">
+    <div id="album-head-card">
+        <div class="image">
+            <img src="{{url+'get-image-album/'+ album.image}}" />
+        </div>
+        <div class="data">
+            <h1>{{album.title}}</h1>
+            <p>{{album.artist.name}}</p>
+            <p>{{album.year}}</p>
+            <p>{{album.description}}</p>
+            <button [routerLink]="['/crear-tema', album._id]" class="btn btn-success"
+                *ngIf="identity.role == 'ROLE_ADMIN'">Agregar cancion</button>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div id="gallery-songs" *ngIf="songs ">
+
+
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <!-- <th scope="col"></th> -->
+                    <th scope="col"></th>
+                    <th scope="col">No.</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Duracion</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let song of songs" class="song-item">
+                <tr>
+
+                    <td><button class="btn btn-success" aria-hidden="true" (click)="startPlayer(song)"
+                            *ngIf="identity.role == 'ROLE_ADMIN'">
+                            <i class="far fa-play-circle"></i>
+                        </button>
+                    </td>
+                    <!-- <td> <button [routerLink]="['/song-list', song._id]" class="btn btn-primary" aria-hidden="true"
+                            *ngIf="identity.role == 'ROLE_ADMIN'">
+                            Play User
+                        </button>
+                    </td> -->
+                    <td> <button [routerLink]="['/song-qr', song._id]" class="btn btn-primary" aria-hidden="true"
+                            *ngIf="identity.role == 'ROLE_ADMIN'">
+                            Play User
+                        </button>
+                    </td>
+                    <td>
+                        <h6>{{song.number}}</h6>
+
+                    </td>
+                    <td>
+                        <h6>{{song.name}}</h6>
+
+                    </td>
+                    <td>
+                        <h6>{{song.duration}}</h6>
+
+                    </td>
+                    <td> <a [routerLink]="['/editar-tema', song._id]" class="btn btn-warning buttons"
+                            *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                            Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a (click)="onDeleteSong(song._id)" class="btn btn-danger buttons"
+                            *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                            Eliminar
+                        </a>
+                    </td>
+
+                    <td><a [routerLink]="['/song', song._id]" class="btn btn-primary buttons"
+                            *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                            Qr
+                        </a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <!-- <form>
+            <textarea name="msg" rows="10">Texto a codificar</textarea><br>
+            <input type="button" value="Generar" onclick="update_qrcode()">
+        </form>
+        <div id="qr"></div> -->
+    </div>
+</div>

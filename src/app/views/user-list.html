@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <br>
+  <div class="container">
+    <input type="text" class="form-control" placeholder="search" name="filterPost" [(ngModel)]="filterPost">
+  </div>
+  <!-- [(ngModel)]="filter" -->
+  <br>
+
+  <!-- <div class="ng-autocomplete">
+    <ng-autocomplete [data]="data$ | async" [searchKeyword]="keyword" [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate" placeholder="Enter the name">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="user.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+
+  </div> -->
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="col-lg-3 user-item" *ngFor="let user of users | filter:filterPost">
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td><button [routerLink]="['/editar-user',user._id]" class="btn btn-warning"><i
+              class="fas fa-edit"></i></button></td>
+        <td><button (click)="onDeleteConfirm(user._id)" class="btn btn-danger"><i
+              class="fas fa-user-times"></i></button>
+        </td>
+        <div class="seguro seguro-user" *ngIf="confirmado == user._id">
+          <a (click)="onDeleteUser(user._id)" class="btn btn-danger">
+            Eliminar
+          </a>
+          <a (click)="onCancelUser()" class="btn btn-primary">
+            Cancelar
+          </a>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

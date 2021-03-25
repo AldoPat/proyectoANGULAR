@@ -1,0 +1,107 @@
+<!-- 
+*ngFor="let song of songs" 
+<table class="table table-hover" class="song-item">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">No.</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Duracion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>{{song.number}}</td>
+            <td>{{song.name}}</td>
+            <td>{{song.duration}}</td>
+        </tr>
+
+    </tbody>
+
+</table> -->
+<!-- {{song.number}}
+{{song.name}}
+{{song.duration}} -->
+
+<!-- <div class="album-box" *ngIf="song">
+    {{album.name}}
+    {{album.description}}
+</div> -->
+
+<div id="gallery-songs" *ngIf="song">
+
+    <div class="image">
+        <img src="{{url+'get-image-album/'+ song.album.image}}" />
+    </div>
+    <p>{{song.album.title}}</p>
+    <p>{{song.album.artist.name}}</p>
+    <p>{{song.album.artist.name}}</p>
+    <p>{{song.album.year}}</p>
+    <p>{{song.album.description}}</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">No.</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Duracion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><button class="btn btn-success" aria-hidden="true" (click)="startPlayer(song)">Play</button>
+
+                </th>
+                <td>{{song.number}}</td>
+                <td>{{song.name}}</td>
+                <td>{{song.duration}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div *ngIf="identity.role == 'ROLE_ADMIN'">
+
+    <h4>Ingresa la url de la cancion para crear le codigo qr</h4>
+    <form>
+        <input name="msg" type="text" class="form-control" required />
+        <br>
+        <button class="btn btn-primary" value="Generar" onclick="update_qrcode()">Generar Qr</button>
+    </form>
+    <div id="qr"></div>
+</div>
+
+
+<!-- <div id="gallery-songs" *ngIf="songs">
+
+    <div class="image">
+        <img src="{{url+'get-image-album/'+ song.album.image}}" />
+    </div>
+    <p>{{song.title}}</p>
+    <p>{{songs.album.artist.name}}</p>
+    <p>{{songs.album.artist}}</p>
+    <p>{{songs.album.year}}</p>
+    <p>{{songdescription}}</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">No.</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Duracion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><button class="btn btn-success" aria-hidden="true" (click)="startPlayer(song)">Play</button>
+
+                </th>
+                <td>{{songs.number}}</td>
+                <td>{{songs.name}}</td>
+                <td>{{songs.duration}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

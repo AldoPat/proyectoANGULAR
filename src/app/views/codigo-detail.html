@@ -1,0 +1,56 @@
+<div class="album-box" *ngIf="song">
+
+    <div id="song-head-card">
+        <div class="data">
+
+            <h1>{{song.name}}</h1>
+
+        </div>
+        <!-- ngIf="0 == codigo.image " -->
+        <div>
+
+            <button [routerLink]="['/crear-codigo', song._id]" class="btn btn-success"
+                *ngIf="identity.role == 'ROLE_ADMIN' && codigos == 0">
+                Agregar Qr
+            </button>
+
+        </div>
+        <!-- <p *ngIf=”nota>=5″>has aprobado</p> -->
+    </div>
+
+</div>
+
+<div class="clearfix"></div>
+
+<!-- {{song.number + '. '+ song.name + ' - '+ song.duration}} -->
+<div id="gallery-codigos" *ngIf="codigos">
+    <ul id="codigos-list">
+        <li *ngFor="let codigo of codigos" class="codigo-item">
+            <div class="title">
+                <img src="{{url+'get-image-codigo/'+ codigo.image}}" />
+
+
+
+                <a [routerLink]="['/editar-codigo', codigo._id]" class="btn btn-warning buttons"
+                    *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                    Editar
+                </a>
+
+                <a (click)="onDeleteConfirm(codigo._id)" class="btn btn-danger buttons"
+                    *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                    Eliminar
+                </a>
+
+                <div class="seguro seguro-song" *ngIf="confirmado == codigo._id">
+                    <a (click)="onDeleteSong(codigo._id)" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                    <a (click)="onCancelCodigo()" class="btn btn-primary">
+                        Cancelar
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>

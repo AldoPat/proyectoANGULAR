@@ -1,0 +1,29 @@
+<div class="" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+    <h1>{{titulo}}</h1>
+    <form #formCodigo="ngForm" (ngSubmit)="onSubmit()">
+
+        <!-- <p>
+            <label>Nombre</label>
+            <input type="text" #name="ngModel" name="name" [(ngModel)]="codigo.name" class="form-control" required />
+            <span *ngIf="!name.valid && name.touched">
+                EL nombre es obligatorio
+            </span>
+        </p> -->
+
+
+        <div *ngIf="is_edit">
+            <div class="codigo_image_for_add" *ngIf="codigo.image && codigo.image != 'null'">
+                <img src="{{url + '/get-image-codigo/'+codigo.image}}" class="add-codigo" />
+            </div>
+
+            <p>
+                <label>Sube la imagen del Codigo Qr</label>
+                <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+            </p>
+        </div>
+        <button class="btn btn-success" value="{{titulo}}" [disabled]="!formCodigo.form.valid">
+            Crear Codigo
+        </button>
+
+    </form>
+</div>

@@ -1,0 +1,37 @@
+<!-- <h1>{{album.title}}</h1>
+<p>{{album.artist.name}}</p>
+<p>{{album.year}}</p>
+<p>{{album.description}}</p> -->
+<div>
+
+    <button class="btn btn-success" aria-hidden="true" (click)="startPlayer(song)">
+        Play
+    </button>
+
+    <h5> {{song.number+ '-' +song.name + '-' + song.duration }}</h5>
+
+
+
+    <!-- 
+    <div class="song_file_for_edit" *ngIf="song.file && song.file != 'null'">
+        <audio controls controlslist="nodownload">
+            <source src="{{url + 'get-song-file/' + song.file}}" type="audio/mpeg" />
+            El navegador no soporta la reproduccion de audio
+
+        </audio>
+    </div> -->
+
+
+
+</div>
+
+<div *ngIf="identity.role == 'ROLE_ADMIN'">
+
+    <h4>Ingresa la url de la cancion para crear le codigo qr</h4>
+    <form>
+        <input name="msg" type="text" class="form-control" required />
+        <br>
+        <button class="btn btn-primary" value="Generar" onclick="update_qrcode()">Generar Qr</button>
+    </form>
+    <div id="qr"></div>
+</div>

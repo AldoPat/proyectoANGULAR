@@ -1,0 +1,16 @@
+<div *ngIf="identity">
+  <div class="col-lg-8">
+    <div class="jumbotron">
+      <h1 class="display-4">Bienvenido a la App</h1>
+      <p class="lead">Empieza a escuchar musica de artistas independientes.</p>
+      <hr class="my-4" />
+      <p>Los mejores artistas independientes.</p>
+      <a
+        class="btn btn-primary btn-lg"
+        [routerLink]="['/artistas', 1]"
+        role="button"
+        >Ver artistas</a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,232 @@
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  /* width: 100%; */
+  background: #eee;
+}
+
+.actived {
+  border-bottom: 4px solid #84bd00;
+  padding-bottom: 3px;
+}
+.central {
+  height: 100%;
+  overflow-y: scroll;
+}
+.head-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.navigation {
+  text-align: center;
+  color: white;
+  background: #1c1c1c;
+  height: 100vh;
+  width: 130px;
+
+  /* margin-top: -20px; */
+  /* position: -ms-page; */
+}
+.navigation a {
+  color: #ddd;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+  text-decoration: none;
+}
+
+/* #user_logger {
+  text-decoration: center;
+  background: #1c1c1c;
+  position: absolute;
+  bottom: 0px;
+  border-top: 1px solid #444;
+  width: 75%;
+} */
+
+img#image-logged {
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  margin-top: 15px;
+  /* margin: 0px auto; */
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.formulario-actualizar {
+  margin-right: 0px;
+  /* float: right; */
+  flex-direction: row;
+}
+
+.btn-sesion {
+  cursor: pointer;
+}
+
+.artist_image_for_edit img
+/* .album_image_for_edit img */ {
+  width: 200px;
+}
+
+.artist-list
+/* .album-list  */ {
+  display: inline-flex;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.album-list {
+  list-style: none;
+  padding: 0px;
+  display: inline-flex;
+}
+
+/* 
+.img-list {
+  width: 100px;
+  margin: 10px 10px 10px 10px;
+} */
+
+.artist-item
+/* .album-item */ {
+  width: 23%;
+  margin: 0px;
+  padding: 0px;
+  height: 317px;
+  /* border: 1px solid #444; */
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.album-item {
+  width: 50%;
+  margin: 0px;
+  padding: 0px;
+  height: 130px;
+  /* border: 1px solid #444; */
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.artist-item .artist-image
+/* .album-item .album-image  */ {
+  height: 245px;
+  align-items: left;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.album-item .album-image img {
+  height: 245px;
+  align-items: left;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+img.img-list {
+  /* width: 100%;
+  height: 100%; */
+  width: 150px;
+  height: 150px;
+}
+
+div.album-name {
+  width: 150px;
+}
+
+.artist-item .artist-image img
+/* .album-item .album-image img  */ {
+  height: 100%;
+}
+
+.album-item .album-image img {
+  /* height: 100%; */
+}
+
+.artist-item .artist-name
+/* .album-item .album-name  */ {
+  color: white;
+  padding: 10px;
+  background: #222326;
+}
+
+.album-item .album-name {
+  color: white;
+  padding: 10px;
+  background: #222326;
+}
+
+.artist-item .artist-name a
+/* .album-item .album-name a  */ {
+  color: white;
+}
+
+#artist-head-card .image {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  float: left;
+  margin-right: 30px;
+}
+
+#artist-head-card .image img {
+  height: 130px;
+}
+
+.add-album {
+  width: 150px;
+}
+
+div#album-head-card img {
+  width: 150px;
+  height: 150px;
+}
+
+.song-item {
+  list-style: none;
+}
+
+.player {
+  background: #1c1c1f;
+  background: white;
+  position: fixed;
+  width: 90.5%;
+  bottom: 0;
+  padding: 20px;
+  margin-left: -15px;
+  border-left: 1px solid #444;
+  color: gray;
+}
+
+.player .album-image {
+  float: left;
+  width: 138px;
+  height: 105px;
+  overflow: hidden;
+}
+
+.player .album-image img {
+  height: 100%;
+}
+
+.player .audio-file {
+  width: 85%;
+  height: 40px;
+  margin-top: 7px;
+  margin-left: 10px;
+  float: left;
+}
+
+.player audio {
+  width: 100%;
+  height: 40px;
+}

@@ -1,0 +1,64 @@
+<div class="col-md-10" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+    <h1>{{titulo}}</h1>
+
+
+    <form #formSong="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>Numero</label>
+            <input type="text" #number="ngModel" name="number" [(ngModel)]="song.number" class="form-control"
+                required />
+            <span *ngIf="!number.valid && number.touched">
+                EL numero es obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Titulo</label>
+            <input type="text" #name="ngModel" name="name" [(ngModel)]="song.name" class="form-control" required />
+            <span *ngIf="!name.valid && name.touched">
+                EL titulo es obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Duracion</label>
+            <input #duration="ngModel" name="duration" [(ngModel)]="song.duration" class="form-control" required />
+            <span *ngIf="!duration.valid && duration.touched">
+                La duracion es obligatoria
+            </span>
+        </p>
+
+        <div *ngIf="is_edit">
+            <div class="song_file_for_edit" *ngIf="song.file && song.file != 'null'">
+                <audio controls controlslist="nodownload">
+                    <source src="{{url + 'get-song-file/' + song.file}}" type="audio/mpeg" />
+                    El navegador no soporta la reproduccion de audio
+
+                </audio>
+            </div>
+
+            <p>
+                <label>Sube la cancion del artista</label>
+                <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+            </p>
+            <!-- <p>
+                <label>Imagen</label>
+                <input #image="ngModel" name="image" [(ngModel)]="song.image" class="form-control" required />
+                <span *ngIf="!image.valid && image.touched">
+                    La imagen es obligatoria
+                </span>
+            </p> -->
+
+            <!-- <div class="song_image_for_edit" *ngIf="song.image && song.image != 'null'">
+                <img src="{{url + '/get-image-song/'+song.image}}" class="add-album" />
+            </div>
+
+            <p>
+                <label>Sube la imagen del album</label>
+                <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+            </p> -->
+        </div>
+
+        <button class="btn btn-success" value="{{titulo}}" [disabled]="!formSong.form.valid">
+            Crear nuevo artistaaaa
+        </button>
+    </form>
+</div>
