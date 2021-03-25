@@ -30,7 +30,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 // import { SongUserComponent } from './components/song-user.component';
 import { SongQrComponent } from './components/song-qr.component';
 
-
+//Icons
+//import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { SongQrComponent } from './components/song-qr.component';
     FormsModule,
     HttpClientModule,
     routing
+   
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 <div class="head-page">
-  <h1>{{titulo}}</h1>
+  <h1 class="text-center">{{titulo}}</h1>
 
   <!-- <a
     [routerLink]="['/crear-artista']"
@@ -28,6 +28,7 @@
 </div>
 
 <div class="clearfix"></div>
+
 <div class="container">
   <ul class="artist-list" *ngIf="identity">
     <li *ngFor="let artist of artists" class="col-lg-3 artist-item">
@@ -47,3 +48,8 @@
     </li>
   </ul>
 </div>
+<div>
+  <player class="player"></player>
+</div>
+
+
